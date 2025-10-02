@@ -23,21 +23,21 @@ void PhoneBook::addContact()
 {
     std::string firstName, lastName, nickname, phoneNumber, darkestSecret;
     std::cout << "Enter first name: ";
-    while (!std::getline(std::cin, firstName) || firstName.empty())
+    while (std::getline(std::cin, firstName) && firstName.empty())
     {
         std::cout << "Enter first name: ";
     }
     if (firstName.empty())
         exit(1);
     std::cout << "Enter last name: ";
-    while (!std::getline(std::cin, lastName) || lastName.empty())
+    while (std::getline(std::cin, lastName) && lastName.empty())
     {
         std::cout << "Enter last name: ";
     }
     if (lastName.empty())
         exit(1);
     std::cout << "Enter nickname: ";
-    while (!std::getline(std::cin, nickname) || nickname.empty())
+    while (std::getline(std::cin, nickname) && nickname.empty())
     {
         std::cout << "Enter nickname: ";
     }
@@ -46,7 +46,7 @@ void PhoneBook::addContact()
     std::cout << "Enter phone number: ";
     while (1)
     {
-        if (!std::getline(std::cin, phoneNumber))
+        if (std::getline(std::cin, phoneNumber) && phoneNumber.empty())
         {
             std::cout << "Enter phone number: ";
             continue;
