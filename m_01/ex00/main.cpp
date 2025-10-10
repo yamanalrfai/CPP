@@ -7,6 +7,8 @@ int main() {
     heapZombie->announce();
     
     randomChump("i am in the stack :)");
+    Zombie ZZ = Zombie("yaman");
+    ZZ.announce();
     delete heapZombie;
     return 0;
 }

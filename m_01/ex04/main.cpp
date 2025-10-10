@@ -53,12 +53,18 @@ int main(int argc, char **argv)
     std::ifstream in(file.c_str());
     if (!in)
     {
-        std::cout << "NOT valid file" << std::endl;
+        std::cerr << "NOT valid file" << std::endl;
         return 1;
     }
     std::string input = readinput(in);
     in.close();
     std::ofstream out((file + ".replace").c_str());
+    if (!out)
+    {
+        in.close();
+        std::cerr << "faild to creat or open ?!" << std::endl;
+        return 1;
+    }
     std::string output = findoutput(input, argv[2], argv[3]);
     out << output;
     out.close();

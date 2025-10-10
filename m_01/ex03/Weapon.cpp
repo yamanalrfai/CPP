@@ -5,7 +5,7 @@ Weapon::Weapon(std::string s)
 {
     this->type = s;
 }
-std::string Weapon::getType()
+const std::string Weapon::getType()
 {
     return this->type;
 }
