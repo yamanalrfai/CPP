@@ -7,7 +7,7 @@ NAME = ex03
 all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(OBJS) -o $(NAME)
-%.o: %.cpp
+%.o: %.cpp Fixed.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 clean:
 	rm -f $(OBJS)
