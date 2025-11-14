@@ -14,7 +14,8 @@ class Form
         const double require;
         const double execute;
     public:
-        Form(/* args */);
+        Form();
+        Form(const std::string& name, double require, double execute);
         ~Form();
         class GradeTooHighException : public std::exception {
             public:

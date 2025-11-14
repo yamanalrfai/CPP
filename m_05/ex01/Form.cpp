@@ -10,6 +10,14 @@ Form::~Form()
 {
 }
 
+Form::Form(const std::string& nam, double req, double exe) : name(nam), sign(false), require(req), execute(exe)
+{
+    if (req < 1 || exe < 1)
+        throw GradeTooHighException();
+    if (req > 150 || exe > 150)
+        throw GradeTooLowException();
+}
+
 const char* Form::GradeTooHighException::what() const throw()
 {
     return "Form Exception: Grade too high";
