@@ -17,6 +17,8 @@ class Form
         Form();
         Form(const std::string& name, double require, double execute);
         ~Form();
+        Form(const Form& other);
+        Form& operator=(const Form& other);
         class GradeTooHighException : public std::exception {
             public:
                 virtual const char* what() const throw();
