@@ -3,12 +3,12 @@
 #include <stdexcept>
 #include <iostream>
 
-Bureaucrat::Bureaucrat(const std::string& nam, double grad) : name(nam), grade(grad)
+Bureaucrat::Bureaucrat(const std::string& nam, int grad) : name(nam), grade(grad)
 {
     if (grad < 1)
-        throw std::out_of_range("Grade too high");
+        throw GradeTooHighException();
     if (grad > 150)
-        throw std::out_of_range("Grade too low");
+        throw GradeTooLowException();
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : name(other.name), grade(other.grade)
@@ -33,13 +33,13 @@ const std::string& Bureaucrat::getName() const
     return name;
 }
 
-double Bureaucrat::getGrade() const
+int Bureaucrat::getGrade() const
 {
     return grade;
 }
 
 
-void Bureaucrat::setGrade(double grad)
+void Bureaucrat::setGrade(int grad)
 {
     if (grad < 1)
         throw (GradeTooHighException());

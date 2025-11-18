@@ -10,7 +10,7 @@ int main()
         std::cout << bob << std::endl;
         std::cout << taxForm << std::endl;
 
-        bob.signForm(taxForm, "insufficient grade");
+        bob.signForm(taxForm);
 
         bob.incrementGrade();
         bob.incrementGrade();
@@ -21,7 +21,7 @@ int main()
         std::cout << "After grade increment:" << std::endl;
         std::cout << bob << std::endl;
 
-        bob.signForm(taxForm, "insufficient grade");
+        bob.signForm(taxForm);
 
         std::cout << taxForm << std::endl;
     }

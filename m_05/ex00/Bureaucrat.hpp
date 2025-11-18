@@ -9,15 +9,15 @@ class Bureaucrat
 {
     private:
         const std::string name;
-        double grade;
+        int grade;
     public:
-        Bureaucrat(const std::string& name, double grade);
+        Bureaucrat(const std::string& name, int grade);
         Bureaucrat(const Bureaucrat& other);
         Bureaucrat();
         Bureaucrat& operator=(const Bureaucrat& other);
         const std::string& getName() const;
-        double getGrade() const;
-        void setGrade(double grade);
+        int getGrade() const;
+        void setGrade(int grade);
         void incrementGrade();
         void decrementGrade();
         ~Bureaucrat();

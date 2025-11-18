@@ -2,7 +2,7 @@
 #include "Bureaucrat.hpp"
 #include <string>
 
-Form::Form() : name("Default"), sign(false), require(150), execute(150)
+Form::Form() : name("Default"), sign(false), gradeToSign(150), gradeToExecute(150)
 {
 }
 
@@ -10,7 +10,7 @@ Form::~Form()
 {
 }
 
-Form::Form(const std::string& nam, double req, double exe) : name(nam), sign(false), require(req), execute(exe)
+Form::Form(const std::string& nam, int req, int exe) : name(nam), sign(false), gradeToSign(req), gradeToExecute(exe)
 {
     if (req < 1 || exe < 1)
         throw GradeTooHighException();
@@ -18,7 +18,7 @@ Form::Form(const std::string& nam, double req, double exe) : name(nam), sign(fal
         throw GradeTooLowException();
 }
 
-Form::Form(const Form& other) : name(other.name), sign(other.sign), require(other.require), execute(other.execute)
+Form::Form(const Form& other) : name(other.name), sign(other.sign), gradeToSign(other.gradeToSign), gradeToExecute(other.gradeToExecute)
 {
 }
 
@@ -42,7 +42,7 @@ const char* Form::GradeTooLowException::what() const throw()
 
 void Form::beSigned(const Bureaucrat& bureaucrat)
 {
-    if (bureaucrat.getGrade() > require)
+    if (bureaucrat.getGrade() > gradeToSign)
         throw GradeTooLowException();
     sign = true;
 }
@@ -64,13 +64,13 @@ bool Form::getSign() const
     return sign;
 }
 
-double Form::getRequire() const
+int Form::getRequire() const
 {
-    return require;
+    return gradeToSign;
 }
 
-double Form::getExecute() const
+int Form::getExecute() const
 {
-    return execute;
+    return gradeToExecute;
 }
 
