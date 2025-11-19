@@ -16,4 +16,5 @@ public:
     void execute(const Bureaucrat& executor) const;
 };
 
+std::ostream& operator<<(std::ostream& os, const ShrubberyCreationForm& form);
 

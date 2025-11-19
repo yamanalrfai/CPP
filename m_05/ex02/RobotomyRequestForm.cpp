@@ -44,3 +44,12 @@ void RobotomyRequestForm::execute(const Bureaucrat& executor) const
     else
         std::cout << "Robotomy failed on " << target << std::endl;
 }
+
+std::ostream& operator<<(std::ostream& os, const RobotomyRequestForm& form)
+{
+    os << "RobotomyRequestForm: " << form.getName() 
+       << " (signed: " << (form.getSign() ? "yes" : "no")
+       << ", sign grade: " << form.getRequire()
+       << ", exec grade: " << form.getExecute() << ")";
+    return os;
+}

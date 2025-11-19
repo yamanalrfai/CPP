@@ -48,3 +48,12 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
     
     file.close();
 }
+
+std::ostream& operator<<(std::ostream& os, const ShrubberyCreationForm& form)
+{
+    os << "ShrubberyCreationForm: " << form.getName() 
+       << " (signed: " << (form.getSign() ? "yes" : "no")
+       << ", sign grade: " << form.getRequire()
+       << ", exec grade: " << form.getExecute() << ")";
+    return os;
+}

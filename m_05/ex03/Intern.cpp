@@ -68,3 +68,10 @@ const char* Intern::FormNotFoundException::what() const throw()
 {
     return "Form not found";
 }
+
+std::ostream& operator<<(std::ostream& os, const Intern& intern)
+{
+    (void)intern;
+    os << "Intern";
+    return os;
+}
