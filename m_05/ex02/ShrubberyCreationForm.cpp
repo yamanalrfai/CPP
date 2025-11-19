@@ -37,7 +37,6 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
     std::ofstream file((target + "_shrubbery").c_str());
     if (!file.is_open())
         throw std::runtime_error("Could not create file");
-    
     file << "       ###" << std::endl;
     file << "      #o###" << std::endl;
     file << "    #####o###" << std::endl;
@@ -51,9 +50,6 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 
 std::ostream& operator<<(std::ostream& os, const ShrubberyCreationForm& form)
 {
-    os << "ShrubberyCreationForm: " << form.getName() 
-       << " (signed: " << (form.getSign() ? "yes" : "no")
-       << ", sign grade: " << form.getRequire()
-       << ", exec grade: " << form.getExecute() << ")";
+    os << "ShrubberyCreationForm: " << form.getName();
     return os;
 }
