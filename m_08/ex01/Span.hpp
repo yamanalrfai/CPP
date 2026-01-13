@@ -1,23 +1,30 @@
 #pragma once
 #include <vector>
 #include <climits>
+#include <set>
+#include <stdexcept>
 class Span
 {
 private:
-    int mi = INT_MAX;
-    int ma = INT_MIN;
-    unsigned int n;
-    unsigned int i = 0;
+    std::multiset<int> s;
+    int n;
     Span();
 public:
     ~Span();
     Span(unsigned int N);
+    Span(const Span &N);
     Span &operator=(const Span);
     void addNumber(int num);
     int shortestSpan();
     int longestSpan();
-    int size();
-    int getI();
-    int setI();
-    
+    class FullSize : public std::exception
+    {
+    public:
+		virtual const char* what() const throw();
+    };
+    class NoSpan : public std::exception
+    {
+    public:
+		virtual const char* what() const throw();
+    };
 };
