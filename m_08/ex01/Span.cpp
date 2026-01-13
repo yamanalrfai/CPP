@@ -1,5 +1,6 @@
-#include <Span.hpp>
+#include "Span.hpp"
 #include <stdexcept>
+#include <algorithm>
 
 Span::Span(){
 
@@ -35,10 +36,34 @@ void Span::addNumber(int num){
     }
 }
 
-const char* Span::FullSize::what() const {
+int Span::shortestSpan(){
+    if (this->s.size() <= 1) {
+        throw NoSpan();
+    }
+    std::vector<int> ans;
+    std::multiset<int>::iterator it1 = this->s.begin(), it2 = this->s.begin();
+    it1++;
+    while (it1 != this->s.end()){
+        ans.push_back(*it1 - *it2);
+        it1++;
+        it2++;
+    }
+    std::sort(ans.begin(), ans.end());
+    return (ans[0]);
+}
+
+int Span::longestSpan() {
+    if (this->s.size() <= 1) {
+        throw NoSpan();
+    }
+    return (*this->s.rbegin() - *this->s.begin());
+}
+    
+
+const char* Span::FullSize::what() const throw() {
     return ("The Span is full");
 }
 
-const char* Span::NoSpan::what() const {
+const char* Span::NoSpan::what() const throw() {
     return ("You need two element to find the Sapn");
 }

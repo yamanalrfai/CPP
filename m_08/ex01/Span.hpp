@@ -7,7 +7,7 @@ class Span
 {
 private:
     std::multiset<int> s;
-    int n;
+    unsigned int n;
     Span();
 public:
     ~Span();
