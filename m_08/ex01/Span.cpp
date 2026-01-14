@@ -28,12 +28,10 @@ Span::Span(const Span &o){
 }
 
 void Span::addNumber(int num){
-    if (this->s.size() != n) {
-        s.insert(num);
-    }
-    else {
+    if (this->s.size() == n) {
         throw FullSize();
     }
+    s.insert(num);
 }
 
 int Span::shortestSpan(){
@@ -58,7 +56,14 @@ int Span::longestSpan() {
     }
     return (*this->s.rbegin() - *this->s.begin());
 }
-    
+
+void Span::addNumber(std::vector<int>::iterator be, std::vector<int>::iterator en){
+    while (be < en)
+    {
+        addNumber(*be);
+        be++;
+    }
+}
 
 const char* Span::FullSize::what() const throw() {
     return ("The Span is full");
