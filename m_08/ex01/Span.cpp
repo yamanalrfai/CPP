@@ -23,8 +23,8 @@ Span &Span::operator=(const Span o){
     return *this;
 }
 
-Span::Span(const Span &o){
-    *this = o;
+Span::Span(const Span &o) : s(o.s), n(o.n){
+    
 }
 
 void Span::addNumber(int num){
